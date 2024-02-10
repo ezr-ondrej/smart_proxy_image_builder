@@ -1,5 +1,5 @@
 module Proxy
-  module PluginTemplate
+  module ImageBuilder
     VERSION = '0.1'
   end
 end

@@ -1,12 +1,12 @@
 require 'test_helper'
-require 'smart_proxy_plugin_template/api'
+require 'smart_proxy_image_builder/api'
 
 # Test that API returns the correct responses
-class PluginTemplateApiTest < Test::Unit::TestCase
+class ImageBuilderApiTest < Test::Unit::TestCase
   include Rack::Test::Methods
 
   def app
-    Proxy::PluginTemplate::Api.new
+    Proxy::ImageBuilder::Api.new
   end
 
   def test_root

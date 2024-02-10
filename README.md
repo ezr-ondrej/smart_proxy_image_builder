@@ -1,34 +1,27 @@
-# Smart Proxy plugin template
+# SmartProxyImageBuilder
 
-This repo is an example plugin which you can use as a starting point for developing
-your own plugin for the Smart Proxy.
+*Introduction here*
 
-## Getting Started
+## Installation
 
-First, clone this repo to a directory named for your new plugin
+See [How_to_Install_a_Smart-Proxy_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Smart-Proxy_Plugin)
+for how to install Smart Proxy plugins
 
-    git clone https://github.com/theforeman/smart_proxy_plugin_template smart_proxy_my_plugin
+This plugin is compatible with Smart Proxy 2.3 or higher.
 
-Now use the provided script to rewrite all the files in the plugin
+## Configuration
 
-    cd smart_proxy_my_plugin
-    ./rename.rb smart_proxy_my_plugin
+Configuration options for this plugin are in `/etc/foreman-proxy/settings.d/image_builder.yml` and include:
 
-The script will output the required Bundler line to add the plugin to the Smart Proxy.
-Apply this change, and restart the Smart Proxy to load it.
+* example_setting: change this as an example
 
-Once working, update the README.md with appropriate information, and publish your plugin!
+## Contributing
 
-## Getting help
-
-The Foreman developers IRC channel and Discourse are the best places to get help:
-
-* Libera: #theforeman-dev
-* Discourse: https://community.theforeman.org/c/development/9
+Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2021 Red Hat
+Copyright (c) *year* *your name*
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
