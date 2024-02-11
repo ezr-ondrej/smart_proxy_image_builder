@@ -25,8 +25,8 @@ module Proxy
         response.body
       end
 
-      post '/blueprints/:name/build/:type' do |blueprint_name, image_type|
-        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).build_image(blueprint_name, image_type)
+      post '/blueprints/:name/build' do |blueprint_name|
+        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).build_image(blueprint_name, 'image-installer')
         
         response.body
       end
