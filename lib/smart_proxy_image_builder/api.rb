@@ -11,8 +11,8 @@ module Proxy
       # authorize_with_ssl_client
 
       get '/blueprints' do
-        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).list_blueprints
-        
+        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket_path).list_blueprints
+
         response.body
       end
 
@@ -20,26 +20,26 @@ module Proxy
         request.body.rewind
         data = request.body.read
 
-        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).push_blueprint(data)
-        
+        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket_path).push_blueprint(data)
+
         response.body
       end
 
       post '/blueprints/:name/build' do |blueprint_name|
-        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).build_image(blueprint_name, 'image-installer')
-        
+        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket_path).build_image(blueprint_name, 'image-installer')
+
         response.body
       end
 
       get '/images' do
-        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).list_images
-        
+        response = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket_path).list_images
+
         response.body
       end
 
       post '/images/:id/sync' do |image_id|
         file = Tempfile.new("#{image_id}.tar")
-        downloaded = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket).download_image(image_id, file)
+        downloaded = ImageBuilder::ComposerAPI.new(logger, ImageBuilder::Plugin.settings.composer_socket_path).download_image(image_id, file)
 
         return 404 unless downloaded
 
